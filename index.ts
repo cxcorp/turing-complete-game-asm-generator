@@ -252,6 +252,7 @@ R5 5
 COUNTER 6
 INPUT 7
 OUTPUT 7
+_ 0
 `;
 
 fs.writeFileSync("./assembly.data", asmContent, "utf-8");
