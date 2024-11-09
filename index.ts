@@ -191,10 +191,11 @@ const getInstructionImmediateModes = ({
   name,
 }: Instruction): ImmediateMode[] => {
   switch (name) {
-    // NOT, READ and WRITE only use first argument, don't add ib/ic modes which
+    case "read":
+      return [];
+    // these only use first argument, don't add ib/ic modes which
     // allow using second argument as immediate mode arg
     case "not":
-    case "read":
     case "write":
       return [ImmediateMode.ARG1_IMMEDIATE];
     default:
@@ -207,7 +208,9 @@ const addImmediateModeClones = (i: Instruction): Instruction[] => {
     // don't add suffixes for wildcard instrs
     return [i];
   }
-  const modesToAdd: ImmediateMode[] = getInstructionImmediateModes(i);
+  const modesToAdd: ImmediateMode[] = getInstructionImmediateModes(i).filter(
+    (a) => a.length > 0
+  );
   return [i, ...modesToAdd.map((mode) => immediateModeClone(i, mode))];
 };
 
