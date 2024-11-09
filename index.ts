@@ -67,8 +67,8 @@ const instructions = `
 1010001037jlti1
 1010000137jneqi1
 1010000037jeqi1
+1001001147pushi1
 1001000147writei1
-1001000047readi1
 1000011157shli1
 1000011057shri1
 1000010157xori1
@@ -107,6 +107,7 @@ const instructions = `
 0000001157or
 0000001057and
 0000000157sub
+0000000057copy
 0000000057add
 `;
 
@@ -207,6 +208,7 @@ const getInstructionImmediateModes = ({
     case "not":
     case "write":
     case "push":
+    case "copy":
       return [ImmediateMode.ARG1_IMMEDIATE];
     default:
       return modes;

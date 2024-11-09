@@ -2,6 +2,8 @@ add 0
 addi1 128
 addi2 64
 addi12 192
+copy 0
+copyi1 128
 sub 1
 subi1 129
 subi2 65
