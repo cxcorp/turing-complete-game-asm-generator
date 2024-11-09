@@ -29,9 +29,11 @@ shli1 135
 shli2 71
 shli12 199
 read 16
-readi1 144
 write 17
 writei1 145
+pop 18
+push 19
+pushi1 147
 jeq 32
 jeqi1 160
 jeqi2 96
