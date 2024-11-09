@@ -216,7 +216,7 @@ const addImmediateModeClones = (i: Instruction): Instruction[] => {
 
 const instr = readFileInstructions(instructions)
   // filter away already immediate mode instructions we've generated
-  .filter(({ name }) => !/i[abc]$/.test(name))
+  .filter(({ name }) => !/i(12|1|2)$/.test(name))
   .map((i) => ({
     ...i,
     // lowercase except if opcode bits has 2 (it's a mask for presentational purposes)
