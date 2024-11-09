@@ -44,6 +44,7 @@ import fs from "node:fs";
 // 00000000                  0           7         add
 
 const instructions = `
+2221102235CALL
 2212222222COND
 2122222211I_ARG2
 2001002235MEM
@@ -97,6 +98,8 @@ const instructions = `
 0010001037jlt
 0010000137jneq
 0010000037jeq
+0001100177ret
+0001100077call
 0001001167push
 0001001067pop
 0001000167write
@@ -203,6 +206,7 @@ const getInstructionImmediateModes = ({
   switch (name) {
     case "read":
     case "pop":
+    case "ret":
       return [];
     // these only use first argument, don't add ib/ic modes which
     // allow using second argument as immediate mode arg
@@ -210,6 +214,7 @@ const getInstructionImmediateModes = ({
     case "write":
     case "push":
     case "copy":
+    case "call":
       return [ImmediateMode.ARG1_IMMEDIATE];
     default:
       return modes;

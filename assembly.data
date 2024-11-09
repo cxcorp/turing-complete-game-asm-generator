@@ -36,6 +36,9 @@ writei1 145
 pop 18
 push 19
 pushi1 147
+call 24
+calli1 152
+ret 25
 jeq 32
 jeqi1 160
 jeqi2 96
